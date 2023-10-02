@@ -41,6 +41,7 @@ app.patch('/update/:id',(req,res)=>{
   })
 })
 
+
   app.get('/StudentInfo',(req,res)=>{
      productCollection.find({})
      .toArray((err,documents)=>{
