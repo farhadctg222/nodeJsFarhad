@@ -1,9 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const passwor = "eixREhISi5KPqK3d"
+const passwor = "A48ktoDi2VaiNDek"
 
 const {MongoClient } = require('mongodb');
-const uri = "mongodb+srv://NewUser:eixREhISi5KPqK3d@cluster0.cgsbnjt.mongodb.net/Product?retryWrites=true&w=majority";
+const uri = "mongodb+srv://organicUser:A48ktoDi2VaiNDek@addnewuser.kllk4y5.mongodb.net/organicdb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {useNewUrlParser: true,useUnifiedTopology: true});
 const ObjectId = require('mongodb').ObjectId
 const app = express()
@@ -19,13 +19,14 @@ app.get('/',(req,res)=>{
 
 
 client.connect(err=>{
-  const productCollection = client.db('Product').collection('ProductData')
+  const productCollection = client.db('organicdb').collection('produc')
+  console.log('mongodb connect')
 
 app.post('/addStudent',(req,res)=>{
   const sss = req.body
   productCollection.insertOne(sss)
   .then(res=>{
-    console.log('successfully done')
+    console.log(res.ops,'successfully done')
   })
   res.redirect('/')
   
